@@ -20,6 +20,7 @@
 		725472CC286116A7004D3FDF /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725472CB286116A7004D3FDF /* Keys.plist */; };
 		725472CF28623ABE004D3FDF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 725472CE28623ABE004D3FDF /* User.m */; };
 		725472D228625E98004D3FDF /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 725472D128625E98004D3FDF /* Tweet.m */; };
+		725472D528638A22004D3FDF /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725472D428638A22004D3FDF /* TweetCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		725472CE28623ABE004D3FDF /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		725472D028625E98004D3FDF /* Tweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		725472D128625E98004D3FDF /* Tweet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		725472D328638A22004D3FDF /* TweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		725472D428638A22004D3FDF /* TweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		75895B6507775E8AFBEEA2D9 /* Pods-twitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +134,8 @@
 		6AD278FF20BCBF280085BC29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				725472D328638A22004D3FDF /* TweetCell.h */,
+				725472D428638A22004D3FDF /* TweetCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725472D528638A22004D3FDF /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				725472CF28623ABE004D3FDF /* User.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,

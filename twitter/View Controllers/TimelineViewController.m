@@ -10,9 +10,18 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetCell.h"
 
-@interface TimelineViewController ()
+@interface TimelineViewController ()<UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *twitterFeedTableView;
+@property (nonatomic, strong)UIRefreshControl *refreshControl;
+
 - (IBAction)didTapLogout:(id)sender;
+//Profile Picture
+
+//
+
+@property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 
 @end
 
@@ -20,20 +29,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.twitterFeedTableView.dataSource = self;
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+       
         if (tweets) {
+            self.arrayOfTweets = (NSMutableArray*)tweets;
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-            }
+            [self.twitterFeedTableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
 }
+
+-(void) 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,4 +70,21 @@
     appDelegate.window.rootViewController = loginViewController;
     [[APIManager shared] logout];
 }
+
+
+// 1
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    
+    [cell setTweetObject:tweet];
+    return cell;
+}
+
+// 2
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfTweets.count;
+}
+
 @end
