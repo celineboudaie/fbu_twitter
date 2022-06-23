@@ -13,6 +13,8 @@
 #import "TweetCell.h"
 
 @interface TimelineViewController ()<UITableViewDataSource>
+//-(void)refreshTweet;
+
 @property (weak, nonatomic) IBOutlet UITableView *twitterFeedTableView;
 @property (nonatomic, strong)UIRefreshControl *refreshControl;
 
@@ -29,8 +31,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.twitterFeedTableView.dataSource = self;
     
+    self.twitterFeedTableView.dataSource = self;
+    [self refreshTweet];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshTweet) forControlEvents:UIControlEventValueChanged];
+    [self.twitterFeedTableView addSubview:self.refreshControl];
+    
+   
+
+
+}
+-(void) refreshTweet{
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
        
@@ -41,11 +53,9 @@
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
-
--(void) 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
