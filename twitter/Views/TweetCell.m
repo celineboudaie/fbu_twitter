@@ -32,8 +32,10 @@
     [self.profilePic setImageWithURL:url];
 
     self.fullName.text = self.tweetObject.user.name;
-    self.userName.text = self.tweetObject.text;
-    self.date.text = self.tweetObject.text;
+
+    NSString *screenName = [[NSString alloc] initWithFormat:@"@%@",self.tweetObject.user.screenName];
+    self.userName.text = screenName;
+    self.date.text = self.tweetObject.createdAtString;
     self.tweetLabel.text = self.tweetObject.text;
 //    add button interactions: like, rt, reply, message.
 //    self.reply = self.tweet
