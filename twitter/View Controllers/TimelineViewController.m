@@ -97,7 +97,9 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
+    cell.tweet = tweet;
     [cell setTweetObject:tweet];
+    
     return cell;
 }
 
