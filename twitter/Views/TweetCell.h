@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *directMessage;
 
 -(void)setTweetObject:(Tweet *)tweet;
-
+@property (strong, nonatomic) IBOutlet Tweet *tweet;
 @end
 
 NS_ASSUME_NONNULL_END

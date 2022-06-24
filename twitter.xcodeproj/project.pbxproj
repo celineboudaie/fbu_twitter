@@ -18,6 +18,7 @@
 		6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790520BCC0380085BC29 /* LoginViewController.m */; };
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
 		721810DA286518AB008C5A7D /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721810D9286518AB008C5A7D /* ComposeViewController.m */; };
+		721810DD286587EE008C5A7D /* TweetDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721810DC286587EE008C5A7D /* TweetDetailsViewController.m */; };
 		725472CC286116A7004D3FDF /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725472CB286116A7004D3FDF /* Keys.plist */; };
 		725472CF28623ABE004D3FDF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 725472CE28623ABE004D3FDF /* User.m */; };
 		725472D228625E98004D3FDF /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 725472D128625E98004D3FDF /* Tweet.m */; };
@@ -45,6 +46,8 @@
 		6AD2790820BCC04D0085BC29 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		721810D8286518AB008C5A7D /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		721810D9286518AB008C5A7D /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		721810DB286587EE008C5A7D /* TweetDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetDetailsViewController.h; sourceTree = "<group>"; };
+		721810DC286587EE008C5A7D /* TweetDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetDetailsViewController.m; sourceTree = "<group>"; };
 		725472CB286116A7004D3FDF /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		725472CD28623ABE004D3FDF /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		725472CE28623ABE004D3FDF /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				721810D8286518AB008C5A7D /* ComposeViewController.h */,
 				721810D9286518AB008C5A7D /* ComposeViewController.m */,
+				721810DB286587EE008C5A7D /* TweetDetailsViewController.h */,
+				721810DC286587EE008C5A7D /* TweetDetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				6AD278D120BC4B950085BC29 /* Sources */,
 				6AD278D220BC4B950085BC29 /* Frameworks */,
 				6AD278D320BC4B950085BC29 /* Resources */,
+				26B069E1F9D228CF0340956E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +239,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		26B069E1F9D228CF0340956E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-twitter/Pods-twitter-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-twitter/Pods-twitter-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-twitter/Pods-twitter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2753FB299E6FD685DF7178D7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +284,7 @@
 				725472D528638A22004D3FDF /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,
 				725472CF28623ABE004D3FDF /* User.m in Sources */,
+				721810DD286587EE008C5A7D /* TweetDetailsViewController.m in Sources */,
 				721810DA286518AB008C5A7D /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
 				725472D228625E98004D3FDF /* Tweet.m in Sources */,

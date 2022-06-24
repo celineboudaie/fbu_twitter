@@ -9,6 +9,8 @@
 #import "TweetCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "Tweet.h"
+#import "APIManager.h"
+
 
 @implementation TweetCell
 
@@ -23,6 +25,10 @@
     // Configure the view for the selected state
 }
 
+-(void)refreshData{
+    
+}
+
 -(void)setTweetObject:(Tweet *)tweet{
     _tweetObject = tweet;
 //    profile picture
@@ -35,14 +41,28 @@
 
     NSString *screenName = [[NSString alloc] initWithFormat:@"@%@",self.tweetObject.user.screenName];
     self.userName.text = screenName;
-    self.date.text = self.tweetObject.createdAtString;
+    self.date.text = self.tweetObject.createdAgo;
     self.tweetLabel.text = self.tweetObject.text;
+    
 //    add button interactions: like, rt, reply, message.
-//    self.reply = self.tweet
+//    self.reply = self.tweet;
 //    self.retweet
 //    self.like
 //    self.directMessage
 }
+
+
+
+
+- (IBAction)didTapFavorite:(id)sender {
+    // TODO: Update the local tweet
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+}
+
+
+
+   
 
 @end
 
