@@ -15,15 +15,12 @@
 #import "TweetDetailsViewController.h"
 
 @interface TimelineViewController ()<ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
-//-(void)refreshTweet;
 
 @property (weak, nonatomic) IBOutlet UITableView *twitterFeedTableView;
 @property (nonatomic, strong)UIRefreshControl *refreshControl;
 
 - (IBAction)didTapLogout:(id)sender;
-//Profile Picture
 
-//
 
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 
@@ -60,7 +57,6 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
