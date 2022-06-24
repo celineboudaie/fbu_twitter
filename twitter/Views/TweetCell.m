@@ -25,9 +25,7 @@
     // Configure the view for the selected state
 }
 
--(void)refreshData{
-    
-}
+
 
 -(void)setTweetObject:(Tweet *)tweet{
     _tweetObject = tweet;
@@ -44,24 +42,35 @@
     self.date.text = self.tweetObject.createdAgo;
     self.tweetLabel.text = self.tweetObject.text;
     
-//    add button interactions: like, rt, reply, message.
-//    self.reply = self.tweet;
-//    self.retweet
-//    self.like
-//    self.directMessage
+
 }
+- (IBAction)retweet:(id)sender {
+}
+
+
+
+- (IBAction)like:(id)sender {
+    
+}
+
 
 
 
 
 - (IBAction)didTapFavorite:(id)sender {
-    // TODO: Update the local tweet
     self.tweet.favorited = YES;
     self.tweet.favoriteCount += 1;
+
+
+[[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+     if(error){
+          NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+     }
+     else{
+         NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+     }
+ }];
 }
-
-
-
    
 
 @end

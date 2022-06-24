@@ -12,6 +12,7 @@
 #import "LoginViewController.h"
 #import "TweetCell.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TimelineViewController ()<ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 //-(void)refreshTweet;
@@ -65,11 +66,19 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    if([[segue identifier] isEqualToString:@"detailsSegue"]){
+        NSIndexPath *senderIndex = [self.twitterFeedTableView indexPathForCell:sender];
+        Tweet *tweet = self.arrayOfTweets[senderIndex.row];
+        TweetDetailsViewController *detailVC = [segue destinationViewController];
+        detailVC.tweet = tweet;
+    }
+    if([[segue identifier] isEqualToString:@"composeSegue"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+    
 }
 
 
@@ -84,7 +93,6 @@
 }
 
 
-// 1
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
@@ -93,7 +101,6 @@
     return cell;
 }
 
-// 2
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;
